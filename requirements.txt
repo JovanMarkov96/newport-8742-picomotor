@@ -1,0 +1,5 @@
+# Core dependencies
+pyusb>=1.2.0
+
+# GUI (optional)
+PyQt5>=5.15.0

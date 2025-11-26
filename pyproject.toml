@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "newport-8742-picomotor"
+version = "0.1.0"
+description = "Python control interface for Newport/New Focus 8742 Picomotor controllers"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+authors = [
+    { name = "Lab185 Team" }
+]
+keywords = ["newport", "newfocus", "picomotor", "8742", "motion-control", "usb"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "pyusb>=1.2.0",
+]
+
+[project.optional-dependencies]
+gui = [
+    "PyQt5>=5.15.0",
+]
+dev = [
+    "pytest",
+    "black",
+    "mypy",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Lab185/newport-8742-picomotor"
+"Documentation" = "https://github.com/Lab185/newport-8742-picomotor#readme"
+"Bug Tracker" = "https://github.com/Lab185/newport-8742-picomotor/issues"
+"Repository" = "https://github.com/Lab185/newport-8742-picomotor"
+"Changelog" = "https://github.com/Lab185/newport-8742-picomotor/blob/main/CHANGELOG.md"
+
+[project.scripts]
+picomotor-gui = "picomotor.gui:main"
+picomotor-cli = "picomotor.controller:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
